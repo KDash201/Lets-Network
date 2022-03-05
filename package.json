@@ -1,0 +1,26 @@
+{
+  "name": "lets-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KDash201/Lets-Network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KDash201/Lets-Network/issues"
+  },
+  "homepage": "https://github.com/KDash201/Lets-Network#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "i": "^0.3.7",
+    "mongoose": "^6.2.4"
+  }
+}
