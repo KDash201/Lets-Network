@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
+// const dateFormat = require("../utils/dateFormat");
 
 const validateEmail = function (email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -26,16 +26,16 @@ const UserSchema = new Schema(
       ],
     },
 
-    thoughts: [
+    thought: [
       {
         type: Schema.Types.ObjectId,
-        ref: "thoughts",
+        ref: "Thought",
       },
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: "user",
+        ref: "User",
       },
     ],
   },
