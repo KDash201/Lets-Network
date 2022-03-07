@@ -37,6 +37,7 @@ const thoughtController = {
         res.status(400).json(err);
       });
   },
+
   // Get all thoughts
   getAllThought(req, res) {
     Thought.find({})
@@ -45,6 +46,34 @@ const thoughtController = {
         console.log(err);
         res.status(400).json(err);
       });
+  },
+
+  updateThought({ params, body }, res) {
+    console.log("Updated Thought");
+    Thought.findOneAndUpdate({ _id: params.thoughtid }, body, {
+      new: true,
+      runValidators: true,
+    })
+      .then((dbThoughtData) => {
+        if (!dbThoughtData) {
+          res.status(404).json({ message: "No thought found with this id!" });
+          return;
+        }
+        res.json(dbThoughtData);
+      })
+      .catch((err) => res.status(400).json(err));
+  },
+
+  deleteThought({ params }, res) {
+    Thought.findByIdAndDelete({ _id: params.thoughtId })
+      .then((dbThoughtData) => {
+        if (!dbThoughtData) {
+          res.status(404).json({ mesage: "No Thought found wit this id! " });
+          return;
+        }
+        res.json(dbThoughtData);
+      })
+      .catch((err) => res.status(400).json(err));
   },
 };
 
